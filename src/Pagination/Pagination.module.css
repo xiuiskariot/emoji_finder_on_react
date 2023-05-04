@@ -1,0 +1,22 @@
+
+ul {
+  margin: 0 auto;
+  display: flex;
+  width: 900px;
+  flex-wrap: wrap;
+}
+
+li {
+  list-style-type:none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  background: #FFFFFF;
+  border: #DEE2E6 1px solid;
+}
+
+a {
+  text-decoration: none;
+}
