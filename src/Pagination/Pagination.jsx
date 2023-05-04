@@ -3,7 +3,6 @@ import "./Pagination.module.css"
 
 export const Pagination = ({ emojiPerPage, totalEmoji, paginate }) => {
 
-  console.log(emojiPerPage)
   const pageNumbers = []
 
   for (let i = 1; i <= Math.ceil(totalEmoji / emojiPerPage); i++) {

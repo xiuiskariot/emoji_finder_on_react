@@ -1,11 +1,12 @@
 import { Header } from "./Header/Header";
 import { Footer } from "./Footer/Footer";
-import { Pagination } from "./Pagination/Pagination";
+//import { Pagination } from "./Pagination/Pagination";
 import { Card } from "./Card/Card";
 import { Main } from "./Main/Main";
-import { useState } from "react";
-import { data } from "./Data/Data.js";
+import { useEffect, useState } from "react";
+//import { data } from "./Data/Data.js";
 import { v4 as uuidv4 } from "uuid";
+import axios from "axios";
 // import Pagination from "@mui/material/Pagination";
 // import Stack from "@mui/material/Stack";
 
@@ -19,59 +20,92 @@ function getUnicData(data) {
   });
   return unicData;
 }
-const newData = getUnicData(data);
+// const newData = getUnicData(data);
 
+// function App() {
+//   const [input, setInput] = useState("");
 
+//   const [data, setData] = useState([]);
 
+//   const [currentPage, setCurrentPage] = useState(1)
+//   const [emojiPerPage] = useState(12)
+
+//   const lastEmojiIndex = currentPage * emojiPerPage;
+//   const firstEmojiIndex = lastEmojiIndex - emojiPerPage;
+//   const currentEmoji = data.slice(firstEmojiIndex, lastEmojiIndex)
+//   const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
+//   const inputHandler = (evt) => {
+//     setInput(evt.target.value)
+//      let filtred = newData.filter(
+//        (card) =>
+//          card.title.toLowerCase().includes(input) ||
+//          card.keywords.toLowerCase().includes(input)
+//      );
+//     console.log(filtred)
+//     setData(filtred)
+//   };
+
+//   return (
+//     <>
+//       <Header handler={inputHandler} value={input} />
+//       <Main>
+//         {currentEmoji.map((el) => (
+//           <Card el={el} key={uuidv4()} />
+//         ))}
+//       </Main>
+//       <Pagination emojiPerPage={emojiPerPage} totalEmoji={data.length} paginate={paginate} />
+//       <Footer />
+//     </>
+//   );
 
 function App() {
+  const [posts, setPosts] = useState([]);
+  const [newPosts, setNewPosts] = useState([]);
+
+  const [, setLoading] = useState(false);
+
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [emojiPerPage] = useState(12);
+  // const lastEmojiIndex = currentPage * emojiPerPage;
+  // const firstEmojiIndex = lastEmojiIndex - emojiPerPage;
+  // const currentEmoji = newPosts.slice(firstEmojiIndex, lastEmojiIndex)
+  // const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
   const [input, setInput] = useState("");
 
-  const [data, setData] = useState(newData);
+  useEffect(() => {
+    setLoading(true);
+    const fetchPosts = async () => {
+      const res = await axios.get("https://emoji.ymatuhin.workers.dev/");
+      setNewPosts(getUnicData(res.data));
+    };
+    fetchPosts();
+    setLoading(false);
+  }, []);
 
-  const [currentPage, setCurrentPage] = useState(1)
-  const [emojiPerPage] = useState(12)
-
-  const lastEmojiIndex = currentPage * emojiPerPage;
-  const firstEmojiIndex = lastEmojiIndex - emojiPerPage;
-  const currentEmoji = data.slice(firstEmojiIndex, lastEmojiIndex)
-  const paginate = (pageNumber) => setCurrentPage(pageNumber)
-
-  const inputHandler = (evt) => {
-    setInput(evt.target.value.trim())
-      
-  };
-
-  
-  // const getFilteredData = () => {
-  //   let filtered = data.filter(
-  //       (card) =>
-  //         card.title.toLowerCase().includes(input) ||
-  //         card.keywords.toLowerCase().includes(input)
-  //     );
-  //   return setData(filtered);
-  // }
-  // getFilteredData()
+  useEffect(() => {
+    let filtred = newPosts.filter(
+      (card) =>
+        card.title.toLowerCase().includes(input) ||
+        card.keywords.toLowerCase().includes(input)
+    );
+    setPosts(filtred);
+  }, [input]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>
-      <Header handler={inputHandler} value={input} />
+      <Header setInput={setInput} value={input} />
       <Main>
-        {currentEmoji
-          .filter(
-            (card) =>
-              card.title.toLowerCase().includes(input) ||
-              card.keywords.toLowerCase().includes(input)
-          )
-          .map((el) => (
-            <Card el={el} key={uuidv4()} />
-          ))}
+        {posts.map((el) => (
+          <Card el={el} key={uuidv4()} />
+        ))}
       </Main>
-      <Pagination
+      {/* <Pagination
         emojiPerPage={emojiPerPage}
-        totalEmoji={data.length}
+        totalEmoji={posts.length}
         paginate={paginate}
-      />
+      /> */}
       <Footer />
     </>
   );
