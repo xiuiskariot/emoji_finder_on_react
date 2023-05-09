@@ -1,4 +1,4 @@
-
+/* 
 ul {
   margin: 0 auto;
   display: flex;
@@ -23,4 +23,36 @@ a {
 
 ul > button {
 outline: none;
+} */
+
+.pagination_cont {
+  margin: 0 auto;
+  display: flex;
+  width: 900px;
+  flex-wrap: wrap;
+}
+
+
+button {
+  background: #FFFFFF;
+  outline: none;
+  border: #DEE2E6 1px solid;;
+  min-width: 40px;
+  height: 40px;
+  cursor: pointer;
+  color: #055160;
+}
+
+button.active {
+  color: #FFFFFF;
+  background: #055160;
+  border: none;
+}
+
+button.disabled {
+  color: #ABB5BE;
+}
+
+button:hover:not(.active) {
+  background: rgb(238, 238, 238);
 }

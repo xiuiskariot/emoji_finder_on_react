@@ -1,24 +1,13 @@
 footer {
-  background: #EDEEF3;
-  padding-bottom: 17px;
-  color: #6C757D;
+  background: #edeef3;
+  color: #6c757d;
   display: flex;
-  
   justify-content: center;
-  
 }
 
-.copyright {
-  text-align: center;
-}
-
-.copyright:before {
-  content: "";
-  display: block;
-  height: 1px;
+.container {
+  padding: 19px 0;
   width: 986px;
-  background-color: #CED4DA;
-  margin-bottom: 13px;
-  margin-left: auto;
-  margin-right: auto;
+  border-top: 1px solid #ced4da;
+  display: flex;
 }

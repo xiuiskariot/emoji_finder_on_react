@@ -1,9 +1,9 @@
 import s from "./Footer.module.css"
 
-export const Footer = () => {
+export const Footer = ({children}) => {
   return (
-    <footer className={s}>
-      <p className={s.copyright}>2022 © Made with love by me</p>
+    <footer className={s.footer}>
+      <div className={s.container}>{children}</div>
     </footer>
   );
 }

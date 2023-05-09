@@ -1,0 +1,16 @@
+select {
+  width: 120px;
+  height: 38px;
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+  background: #ffffff;
+  padding: 9px 15px;
+  color: #6c757d;
+  appearance: none;
+  background: url(../Vector.svg) no-repeat right #FFFFFF;
+  background-position-x: calc(100% - 16px);
+}
+
+option {
+  font-family: 'Inter', sans-serif;
+}
