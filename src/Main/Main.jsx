@@ -1,6 +1,6 @@
 import s from "./Main.module.css"
 
-export function Main({children}) {
+export function Main({ children}) {
   return (
     <main>
         <div className={s.container}>

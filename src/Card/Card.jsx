@@ -1,7 +1,7 @@
 import s from "./Card.module.css";
 
-export const Card = ({ el, loading }) => {
-  if (loading) return <h2>Loading</h2>
+export const Card = ({ el}) => {
+
   return (
   
         <div className={s.emoji_card}>

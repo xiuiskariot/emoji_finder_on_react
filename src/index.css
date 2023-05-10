@@ -8,4 +8,7 @@
 main {
   background: #edeef3;
   min-height: 64.5vh;
+ /* display: flex;
+ justify-content: center;
+ align-items: center; */
 }
