@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/emoji_finder_on_react/static/css/main.22b4d719.css",
-    "main.js": "/emoji_finder_on_react/static/js/main.ba6ed671.js",
+    "main.css": "/emoji_finder_on_react/static/css/main.a92c1e49.css",
+    "main.js": "/emoji_finder_on_react/static/js/main.2bae81ea.js",
     "index.html": "/emoji_finder_on_react/index.html",
     "static/media/Vector.svg": "/emoji_finder_on_react/static/media/Vector.613067c6134ec2066f76.svg",
-    "main.22b4d719.css.map": "/emoji_finder_on_react/static/css/main.22b4d719.css.map",
-    "main.ba6ed671.js.map": "/emoji_finder_on_react/static/js/main.ba6ed671.js.map"
+    "main.a92c1e49.css.map": "/emoji_finder_on_react/static/css/main.a92c1e49.css.map",
+    "main.2bae81ea.js.map": "/emoji_finder_on_react/static/js/main.2bae81ea.js.map"
   },
   "entrypoints": [
-    "static/css/main.22b4d719.css",
-    "static/js/main.ba6ed671.js"
+    "static/css/main.a92c1e49.css",
+    "static/js/main.2bae81ea.js"
   ]
 }
